@@ -1,4 +1,4 @@
-# React Studyß
+# React Study
 리엑트, 리엑트 네이티브 Hello world
 
 ---
@@ -7,6 +7,9 @@
 
 ```
 Git
+ㄴProject
+    ㄴtodo
+    ㄴ
 ㄴReact-app
     ㄴDay1
     ㄴDay2
