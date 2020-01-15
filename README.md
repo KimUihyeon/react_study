@@ -7,14 +7,12 @@
 
 ```
 Git
-ㄴProject
-    ㄴtodo
     ㄴ
 ㄴReact-app
-    ㄴDay1
-    ㄴDay2
-    ㄴDay3
-    ㄴ...
+    ㄴstudy1 (책내용 스터디)
+    ㄴstudy2 (강의내용 스터디)
+    ㄴstudy3 ()
+    ㄴstudy4 (todoList 만들기 _ 각자)
 ㄴReact-native
     ㄴDay1
     ㄴDay2
@@ -23,4 +21,5 @@ Git
 ```
 
 
+
 ---
