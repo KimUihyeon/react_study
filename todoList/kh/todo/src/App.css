@@ -1,0 +1,45 @@
+.todoMain {
+  /* text-align: center; */
+  width: 400px;
+  margin: 20px;
+}
+
+.todo_title {
+  background-color: skyblue;
+  font-size: 20pt;
+  color: white;
+  text-align: center;
+}
+
+.todo_inputForm{
+  flex: 1;
+  height:40;
+  outline: none;
+  width: 90%;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  margin-right: 5px;
+}
+
+.checked_todo{
+  text-decoration: line-through;
+  color: #adb5bd;
+}
+
+.todo_deleteBtn{
+  width:60;
+  margin-left: auto;
+  height: 30px !important;
+  cursor: pointer;
+}
+
+.todo_addBtn{
+  height: 25 !important;
+  background-color: rgb(135, 206, 235);
+  margin-left: auto;
+}
+
+.each_todoItem{
+  margin-top: 10px;
+  display: flex;
+  border-bottom: 1px solid rgb(204, 210, 212);
+}
