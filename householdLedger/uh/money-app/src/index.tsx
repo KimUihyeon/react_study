@@ -1,7 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
+import { reducers } from './reducers/index';
+import { createStore } from 'redux'
+import * as actions from './actions'
 import * as serviceWorker from './serviceWorker';
+
+
+class Data {
+    constructor(){
+
+    }
+}
+
+let store = createStore(reducers);
+store.subscribe(() => {console.log(store.getState())})
+store.dispatch(actions.categori_insert({name : '11'}));
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
