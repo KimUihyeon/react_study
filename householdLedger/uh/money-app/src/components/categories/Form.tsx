@@ -4,11 +4,10 @@ interface CategoryProps {
     name : string,
 }
 
-export const Category = (props : CategoryProps) : React.FC => {
-
+export const Form = (props : CategoryProps) : React.FC => {
     return (
         <div>
-            Category
+            Category Form
         </div>
     )
 }

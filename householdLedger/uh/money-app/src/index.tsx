@@ -3,14 +3,11 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import { reducers } from './reducers/index';
 import { createStore } from 'redux'
-import { Provider } from 'react-redux'
-import * as actions from './actions'
+import { Provider } from 'react-redux' 
 import * as serviceWorker from './serviceWorker';
-
 
 let store = createStore(reducers);
 store.subscribe(() => {console.log(store.getState())})
-store.dispatch(actions.categori_insert({name : '11'}));
 
 const rootCompoenet =  (
                             <Provider store={store}>

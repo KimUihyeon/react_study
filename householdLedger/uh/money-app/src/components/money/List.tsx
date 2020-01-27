@@ -4,7 +4,7 @@ interface MoneyListProps {
 
 }
 
-export const MoneyList = (props : MoneyListProps) : React.FC => {
+export const List = (props : MoneyListProps) : React.FC => {
     return (
         <div>
             MoneyList

@@ -1,16 +1,41 @@
 import React from 'react';
-import { Category } from './Category'
-import { MoneyForm } from './MoneyForm'
-import { MoneyList } from './MoneyList'
+import { Form as CategoryForm } from './categories/Form'
+import { Form as MoneyForm} from './money/Form'
+import { List as MoneyList} from './money/List'
+import { Menu } from './common/Menu'
+import { connect } from 'react-redux'
+import * as actions from '../actions/index'
+import { IMenuItem } from '../interfacies'
 
-const App : React.FC = () => {
+interface AppProps {
+  menuItems : IMenuItem[],
+  menuItemClick : any
+}
+
+const App : React.FC = (props : AppProps) => {
   return (
     <div>
-      <Category name='123'/>
-      <MoneyForm />
-      <MoneyList />
+      <Menu
+          menuItems={props.menuItems}
+          handleItemClick={props.menuItemClick}/>
+      <div></div>
     </div>
   )
 }
 
-export default App
+
+const mapStateToProps = (state) : any => {
+  return {
+    menuItems : state.menu.menuItems
+  }
+}
+
+const mapDispatchToProp = (dispatch) : any =>{
+  return {
+    menuItemClick : (menuItem : IMenuItem) => {dispatch(actions.MenuActions.MenuClick(menuItem))}
+  }
+}
+
+
+
+export default connect(mapStateToProps,mapDispatchToProp)(App);

@@ -4,7 +4,7 @@ interface MoneyFormProps{
 
 }
 
-export let MoneyForm = (props : MoneyFormProps) : React.FC =>{
+export let Form = (props : MoneyFormProps) : React.FC =>{
     return (
         <div>
             MoneyForm
