@@ -3,10 +3,10 @@ import Body from '../container/Body'
 import Header from '../container/Header'
 import Footer from '../container/Footer'
 
-const App : React.FC = () => {
+const App : React.SFC = () => {
   return (
     <div>
-      <Header/>
+      <Header />
       <Body/>
       <Footer/>
     </div>

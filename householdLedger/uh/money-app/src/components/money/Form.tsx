@@ -1,10 +1,10 @@
 import React from "react";
 
-interface MoneyFormProps{
+interface Props{
 
 }
 
-export let Form = (props : MoneyFormProps) : React.FC =>{
+export const Form : React.FC<Props> = (props : Props)  =>{
     return (
         <div>
             MoneyForm

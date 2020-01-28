@@ -5,12 +5,12 @@ import { connect }  from 'react-redux'
 import { Menu } from '../components/common/Menu'
 
 
-interface HeaderProps {
+interface Props {
     menuItems : IMenuItem[],
     menuItemClick : any
 }
 
-const Header = (props : HeaderProps) : React.FC=>{
+const Header : React.SFC<Props> = (props)=>{
     return(
         <div>
             <Menu 
@@ -19,6 +19,7 @@ const Header = (props : HeaderProps) : React.FC=>{
         </div>
     )
 }
+Header.defaultProps = {}
 
 
 const mapStateToProps = (state) : any => {

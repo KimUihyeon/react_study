@@ -1,7 +1,48 @@
-.menuActive {
+/* common 공통 css */
+a, a:active , a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+.a-block {
+    display: block;
+    width: 100%;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+
+
+
+/* Menu 관련 */
+.menu{
+    display: flex;
+    flex-flow: row;
+    padding: 5px;
+    border: 1px solid #000;
+}
+
+.menu .menu-item{
+    display: flex;
+    flex: 1;
+}
+
+.menu .menuActive {
     color:red;
 }
 
-.menuItem {
-    cursor: pointer;
+
+.menu .title , .menu .icon {
+    text-align: center;
+}
+
+
+.menu .title {
+    
+}
+
+.menu .icon {
+
 }

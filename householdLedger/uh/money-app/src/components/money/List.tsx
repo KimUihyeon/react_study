@@ -1,10 +1,10 @@
 import React from "react";
 
-interface MoneyListProps {
+interface Props {
 
 }
 
-export const List = (props : MoneyListProps) : React.FC => {
+export const List : React.FC<Props> = (props : Props) => {
     return (
         <div>
             MoneyList

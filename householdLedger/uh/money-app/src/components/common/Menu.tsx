@@ -1,13 +1,13 @@
 import React from "react";
 import { IMenuItem }from '../../interfacies';
-import { Link } from "react-router-dom";
+import { MenuItem } from './MenuItem'
 
-interface MenuProps {
+interface Props {
     menuItems : IMenuItem[],
     handleItemClick : any
 }
 
-export const Menu = (props : MenuProps) : React.FC<{}> => {
+export const Menu : React.FC<Props> = (props)=> {
     let mapToComponent = props.menuItems.map((data)=>{
         return (
             <MenuItem key={data.id} menuItem={data} 
@@ -16,32 +16,8 @@ export const Menu = (props : MenuProps) : React.FC<{}> => {
     })
 
     return (
-        <div>
+        <div className='menu'>
             {mapToComponent}
         </div>
-    )
-}
-
-
-/* --------------------------------------- */ 
-
-interface MenuItemProps {
-    menuItem : IMenuItem,
-    handleClick : any,
-}
-
-const MenuItem = (props : MenuItemProps) : React.FC<{}> => {
-
-    let activeStyle = props.menuItem.active ? 'menuActive menuItem' : 'menuItem';
-
-    return (
-        <span>
-            <div className={activeStyle} onClick={() =>{props.handleClick(props.menuItem)}} >
-                <Link to={props.menuItem.url}>
-                    {props.menuItem.icon}
-                    {props.menuItem.name}
-                </Link>
-            </div>
-        </span>
     )
 }

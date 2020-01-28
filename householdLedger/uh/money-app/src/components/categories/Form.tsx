@@ -1,10 +1,10 @@
 import React from 'react';
 
-interface CategoryProps {
+interface Props {
     name : string,
 }
 
-export const Form = (props : CategoryProps) : React.FC => {
+export const Form : React.FC<Props> = (props : Props) => {
     return (
         <div>
             Category Form

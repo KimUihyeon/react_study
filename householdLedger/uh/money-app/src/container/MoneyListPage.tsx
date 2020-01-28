@@ -1,10 +1,16 @@
 import React from "react";
 import { List as MoneyList} from '../components/money/List'
+import { connect } from 'react-redux';
 
-export const MoneyListPage  = () : React.FC =>{
+const MoneyListPage : React.FC  = ()  =>{
     return (
         <div>
             MoneyListPage
         </div>
     )
 }
+
+
+
+
+export  default connect()(MoneyListPage);
