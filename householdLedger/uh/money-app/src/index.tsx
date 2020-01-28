@@ -5,13 +5,17 @@ import { reducers } from './reducers/index';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux' 
 import * as serviceWorker from './serviceWorker';
+import './style/index.css';
+import { BrowserRouter as Router } from "react-router-dom";
 
 let store = createStore(reducers);
 store.subscribe(() => {console.log(store.getState())})
 
 const rootCompoenet =  (
                             <Provider store={store}>
-                                <App />
+                                <Router>
+                                    <App />
+                                </Router>
                             </Provider>);
 ReactDOM.render(rootCompoenet, document.getElementById('root'));
 

@@ -6,7 +6,6 @@ const initialState = {
 }
 
 export const category = (state : any = initialState, action : any) : object =>{
-    console.log(action.category);
     switch(action.type){
         case actionTypes.CTG_INSERT : {
             return {

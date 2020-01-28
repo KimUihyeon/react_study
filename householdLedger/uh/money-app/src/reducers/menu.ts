@@ -11,15 +11,11 @@ export const menu = (state : any  = initialState, action : any ) : object =>{
         case ActionTypes.MENU_CLICK : {
             let cloneMenuItems = [...state.menuItems].map((menu)=>{
                 menu.active = false;
-                console.log(menu.id)
-                console.log(action.menuItem.id);
                 if(menu.id === action.menuItem.id){
                     menu.active = true;
                 }
                 return menu;    
             });
-            console.log(cloneMenuItems);
-
             return {
                 ...state,
                 menuItems : cloneMenuItems

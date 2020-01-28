@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Main = () : React.FC=>{
+const Footer = () : React.FC=>{
 
     return(
         <div>
@@ -8,3 +8,5 @@ export const Main = () : React.FC=>{
         </div>
     )
 }
+
+export default Footer;

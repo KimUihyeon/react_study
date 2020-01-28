@@ -1,0 +1,7 @@
+.menuActive {
+    color:red;
+}
+
+.menuItem {
+    cursor: pointer;
+}
