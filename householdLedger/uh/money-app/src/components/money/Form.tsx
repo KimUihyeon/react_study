@@ -4,7 +4,7 @@ interface Props{
 
 }
 
-console.log('아니 왜안대')
+console.log('커미미미ㅣㅇ이잇')
 
 export const Form : React.FC<Props> = (props : Props)  =>{
     return (
