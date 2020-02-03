@@ -1,8 +1,8 @@
 import React from "react";
-import * as actions from '../actions';
-import { IMenuItem } from '../interfacies';
+import * as actions from '../../actions';
+import { IMenuItem } from '../../interfacies';
 import { connect }  from 'react-redux'
-import { Menu } from '../components/common/Menu'
+import { Menu } from '../../components/common/Menu'
 
 
 interface Props {

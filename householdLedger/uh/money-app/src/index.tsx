@@ -5,9 +5,12 @@ import { reducers } from './reducers/index';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux' 
 import * as serviceWorker from './serviceWorker';
+import '@blueprintjs/core/lib/css/blueprint.css'
+import '@blueprintjs/icons/lib/css/blueprint-icons.css'
 import './style/index.css';
 import { BrowserRouter as Router } from "react-router-dom";
 
+{/* <link href="%PUBLIC_URL%/../node_modules/normalize.css/normalize.css" rel="stylesheet" /> */}
 let store = createStore(reducers);
 store.subscribe(() => {console.log(store.getState())})
 
