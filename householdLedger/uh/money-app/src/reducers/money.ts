@@ -1,12 +1,14 @@
 import * as actionTypes from "../actions/ActionTypes";
+import { IMoney } from '../interfacies/index';
 
 const initialState = {
     moneys : []
 }
 
-export const money = (state , action) =>{
+export const money = (state = initialState, action) =>{
     
     return {
-        ...state
+        ...state , 
+        moneys : state.moneys
     }
 }

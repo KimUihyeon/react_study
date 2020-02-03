@@ -7,13 +7,11 @@ import { Button, Intent, Spinner } from "@blueprintjs/core";
 const App : React.FC = () => {
   return (
     <div>
-
       <Button icon="refresh" intent="danger" text="Reset" />
       <Button className="docs-wiggle">test</Button>
       <Header/>
       <Body/>
       <Footer/>
-
     </div>
   )
 }

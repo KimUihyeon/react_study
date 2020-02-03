@@ -21,3 +21,24 @@ export class MenuItem implements IMenuItem{
         this.url = url;
     }
 }
+
+///-----
+
+export interface IMoney{
+    id : number;
+    title : string;
+    price : number;
+}
+
+
+export class Money implements IMoney{
+    id: number;   
+    title: string;
+    price: number;
+
+    constructor(id = 0,title,price){
+        this.id = id;
+        this.title = title;
+        this.price = price;
+    }
+}
