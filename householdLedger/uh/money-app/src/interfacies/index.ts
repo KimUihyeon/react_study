@@ -27,18 +27,24 @@ export class MenuItem implements IMenuItem{
 export interface IMoney{
     id : number;
     title : string;
-    price : number;
+    type : string;
+    amount : number;
+    createDate : Date;
 }
 
 
 export class Money implements IMoney{
     id: number;   
     title: string;
-    price: number;
+    type : string;
+    amount: number;
+    createDate : Date;
 
-    constructor(id = 0,title,price){
+    constructor(id = 0, title, amount, type = '지출'){
         this.id = id;
         this.title = title;
-        this.price = price;
+        this.type = type;
+        this.amount = amount;
+        this.createDate = new Date(Date.now());
     }
 }

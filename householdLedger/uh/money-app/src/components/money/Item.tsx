@@ -9,7 +9,10 @@ interface Props {
 export const Item : React.FC<Props> = ({ money , handleClick} :Props) =>{
     return (
         <div>
-            Item.
+            <div>
+                {money.title} //
+                {money.createDate.toISOString().substring(0, 10)}
+            </div>
         </div>
     );
 }

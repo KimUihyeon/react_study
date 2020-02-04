@@ -1,8 +1,9 @@
 import * as actionTypes from "../actions/ActionTypes";
 import { IMoney } from '../interfacies/index';
+import { masterData }  from '../data'
 
 const initialState = {
-    moneys : []
+    moneys : masterData.moneyItems
 }
 
 export const money = (state = initialState, action) =>{

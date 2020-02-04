@@ -10,7 +10,7 @@ interface Props {
 export const List : React.FC<Props> = ({moneys , handleClick} : Props) => {
     
     let collectionToComponenet = moneys.map(d=>
-            <MoneyItem money={d} handleClick={handleClick}/>
+            <MoneyItem key={d.id} money={d} handleClick={handleClick}/>
         );
 
     return (

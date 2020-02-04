@@ -27,7 +27,7 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-
+        handleClick : () => { console.log('t') }
     }
 }
 

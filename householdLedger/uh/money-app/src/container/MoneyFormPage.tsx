@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux'
+import { Form as MoneyForm } from '../components/money/Form'
 
 
 interface Props {
@@ -9,7 +10,8 @@ interface Props {
 const MoneyFormPage : React.FC<Props> = (props :  Props) =>{
     return (
         <div>
-            moneyForm
+            <MoneyForm disabled={false}>
+            </MoneyForm>
         </div>
     )
 }
