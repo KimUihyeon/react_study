@@ -10,7 +10,7 @@ interface Props {
 const MoneyFormPage : React.FC<Props> = (props :  Props) =>{
     return (
         <div>
-            <MoneyForm disabled={false}>
+            <MoneyForm>
             </MoneyForm>
         </div>
     )
