@@ -1,11 +1,11 @@
-import * as ActionTypes from '../actions/ActionTypes';
+import * as ActionTypes from '../actions/actionTypes';
 import { masterData } from '../data';
 
 const initialState = {
     menuItems : masterData.menuItems
 }
 
-export const menu = (state : any  = initialState, action : any ) : object =>{
+export const menu = (state : any  = initialState, action : any ) : any =>{
 
     switch(action.type){
         case ActionTypes.MENU_CLICK : {

@@ -4,10 +4,10 @@ interface Props {
     
 }
 
-export const SettingPage : React.FC<Props> = (Props : Props) =>{
+export function SettingPage (Props : Props) {
     return (
         <div>
             setting Page
         </div>
-    ) 
+    )
 }

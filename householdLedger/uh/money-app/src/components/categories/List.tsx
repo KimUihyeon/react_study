@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export let List : React.FC = () =>{
+export function List () {
     return (
         <div>
             

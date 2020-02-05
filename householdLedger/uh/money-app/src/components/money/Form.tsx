@@ -11,7 +11,7 @@ interface Props{
 
 
 
-export const Form : React.FC<Props> = (props : Props)  =>{
+export function Form (props : Props) {
     let intent : Intent = Intent.NONE;
     let labelInfo : string = '(필수입력)';
     let caption = {

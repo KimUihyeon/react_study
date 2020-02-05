@@ -1,7 +1,8 @@
-import React from "react";
+import React, { Dispatch } from "react";
 import * as actions from '../actions';
 import { IMenuItem } from '../interfacies';
-import { connect }  from 'react-redux'
+import { connect, DispatchProp }  from 'react-redux'
+import { stateTypes } from '../reducers'
 import { Menu } from '../components/common/Menu'
 
 
@@ -10,33 +11,33 @@ interface Props {
     menuItemClick : any
 }
 
-const Header = ( props : Props ) => {
-    return(
-        <div>
-            <Menu 
-                handleItemClick={props.menuItemClick}
-                menuItems={props.menuItems}/>
-        </div>
-    )
+function Header ({ menuItems, menuItemClick } : Props) {
+  return(
+    <div>
+        <Menu 
+            handleItemClick={menuItemClick}
+            menuItems={menuItems}/>
+    </div>
+  )
 }
+
 Header.defaultProps = {
   menuItems : [],
   menuItemClick : ()=>{ console.error('menuItemClick undefind')}
 }
 
-
-const mapStateToProps = (state) : any => {
+const mapStateToProps = (state : stateTypes) : object => {
     return {
       menuItems : state.menu.menuItems
     }
   }
   
-  const mapDispatchToProp = (dispatch) : any =>{
-    return {
-      menuItemClick : (menuItem : IMenuItem) => {
-          dispatch(actions.MenuActions.MenuClick(menuItem))}
-    }
+const mapDispatchToProp = (dispatch : any) : object =>{
+  return {
+    menuItemClick : (menuItem : IMenuItem) => {
+        dispatch(actions.MenuActions.MenuClick(menuItem))}
   }
+}
   
   
   

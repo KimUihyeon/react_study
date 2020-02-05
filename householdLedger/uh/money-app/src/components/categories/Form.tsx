@@ -4,7 +4,7 @@ interface Props {
     name : string,
 }
 
-export const Form : React.FC<Props> = (props : Props) => {
+export function Form (props : Props) {
     return (
         <div>
             Category Form

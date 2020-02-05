@@ -1,6 +1,7 @@
 import React from "react";
 import { List as MoneyList} from '../components/money/List'
 import { connect } from 'react-redux';
+import { stateTypes } from '../reducers'
 import { IMoney } from '../interfacies/index'
 
 interface Props {
@@ -8,7 +9,7 @@ interface Props {
     handleClick : any,
 }
 
-const MoneyListPage : React.FC<Props>  = ({ moneys, handleClick } : Props)  =>{
+function MoneyListPage ({ moneys, handleClick } : Props) {
     return (
         <div>
             <MoneyList 
@@ -19,13 +20,13 @@ const MoneyListPage : React.FC<Props>  = ({ moneys, handleClick } : Props)  =>{
 }
 
 
-let mapStateToProps = (state) => {
+let mapStateToProps = (state : stateTypes) => {
     return {
         moneys : state.money.moneys
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
+let mapDispatchToProps = (dispatch : any) => {
     return {
         handleClick : () => { console.log('t') }
     }

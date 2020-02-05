@@ -5,7 +5,7 @@ import MoneyFormPage from './MoneyFormPage'
 import { SettingPage } from './SettingPage'
 
 
-const Body : React.FC = () =>{
+function Body(){
     return(
         <div>
             <Route path='/main' component={MoneyListPage} />

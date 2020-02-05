@@ -1,9 +1,11 @@
 
 enum CRUDTypes { 'SELECT', 'SELECT_ONE' , 'DELETE' , 'UPDATE', 'INSERT'}
 enum EenvetTypes { 'CLICK' , 'CHANGED' }
+enum UIAction { 'test' }; 
 
 const category_service_prefix = 'CTG';
 const money_service_prefix = 'MONEY';
+const ui_service_prefix = 'UI';
 
 
 const type_joinner  = (...types : string[]) : string => {
@@ -23,5 +25,7 @@ export const MONEY_SELECT = type_joinner(money_service_prefix , CRUDTypes.SELECT
 export const MONEY_SELECT_ONE = type_joinner(money_service_prefix , CRUDTypes.SELECT_ONE.toString());
 
 
-
 export const MENU_CLICK = type_joinner('MENU' , EenvetTypes.CLICK.toString())
+
+
+export const UI_ANIMATION = type_joinner( ui_service_prefix , UIAction.test.toString());

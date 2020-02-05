@@ -6,7 +6,7 @@ interface Props {
     handleClick : any
 }
 
-export const Item : React.FC<Props> = ({ money , handleClick} :Props) =>{
+export function Item ({ money , handleClick } :Props) {
     return (
         <div>
             <div>

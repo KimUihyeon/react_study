@@ -4,3 +4,6 @@ import { menu } from './menu';
 import { combineReducers } from 'redux';
 
 export const reducers =  combineReducers({category,money,menu});
+
+
+export type stateTypes = ReturnType<typeof reducers>;

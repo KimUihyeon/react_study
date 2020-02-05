@@ -7,11 +7,13 @@ interface Props {
     handleItemClick : any
 }
 
-export const Menu : React.FC<Props> = (props)=> {
-    let mapToComponent = props.menuItems.map((data)=>{
+
+export function Menu ({ menuItems, handleItemClick} :Props)  {
+    
+    let mapToComponent = menuItems.map((data)=>{
         return (
             <MenuItem key={data.id} menuItem={data} 
-                    handleClick={props.handleItemClick}/>
+                    handleClick={handleItemClick}/>
         )
     })
 

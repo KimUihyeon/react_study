@@ -9,7 +9,7 @@ interface Props {
     handleClick : any
 }
 
-export const List : React.FC<Props> = ({moneys , handleClick} : Props) => {
+export function List ({moneys , handleClick} : Props) {
         
     const cellRenderer = (rowIndex: number) => {
         return <Cell>{`$${(rowIndex * 10).toFixed(2)}`}</Cell>

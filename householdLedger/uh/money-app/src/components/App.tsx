@@ -4,7 +4,7 @@ import Header from '../container/Header'
 import Footer from '../container/Footer'
 import { Button, Intent, Spinner } from "@blueprintjs/core";
 
-const App : React.FC = () => {
+export function App (){
   return (
     <div>
       <Button icon="refresh" intent="danger" text="Reset" />
@@ -15,6 +15,3 @@ const App : React.FC = () => {
     </div>
   )
 }
-
-
-export default App;

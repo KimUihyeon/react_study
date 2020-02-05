@@ -1,13 +1,15 @@
 import React from "react";
 import { connect } from 'react-redux'
 import { Form as MoneyForm } from '../components/money/Form'
+import { stateTypes } from '../reducers'
 
 
 interface Props {
 
 }
 
-const MoneyFormPage : React.FC<Props> = (props :  Props) =>{
+
+function MoneyFormPage (props : Props) {
     return (
         <div>
             <MoneyForm>
@@ -17,13 +19,13 @@ const MoneyFormPage : React.FC<Props> = (props :  Props) =>{
 }
 
 
-let mapStateToProps = (state) =>{
+let mapStateToProps = (state : stateTypes) =>{
     return {
 
     }
 }
 
-let mapDispatchToProps = (dispatch) =>{
+let mapDispatchToProps = (dispatch : any) =>{
     return {
 
     }
