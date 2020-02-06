@@ -27,7 +27,8 @@ export const money = (state = initialState, action : AnyAction) : any =>{
         }
 
         case actionTypes.MONEY_INSERT : {
-            let moneys = state.moneys.push(action.money);
+            console.log(action.money);
+            let moneys = state.moneys.concat(action.money);
             return {
                 ...state,
                 moneys

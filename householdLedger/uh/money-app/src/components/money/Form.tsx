@@ -2,16 +2,21 @@ import React from "react";
 import { Intent } from "@blueprintjs/core";
 import { IconNames } from "@blueprintjs/icons";
 import { FormGroup, InputGroup , NumericInput, Card,
-    Button, H1,  Dialog,  HTMLSelect , ControlGroup,
+    Button, H1,  Dialog,  HTMLSelect , ControlGroup, Toast,
     EditableText, RadioGroup , Radio , Tag, ButtonGroup} from "@blueprintjs/core";
+import { IMoney } from "../../interfacies";
 
 
 interface Props{
+    isModal : boolean,
+    money : IMoney,
+    handleClick_close : any,
+    handleClick_open : any,
+    handleClick_save : any
 }
 
 
-
-export function Form (props : Props) {
+export function Form ({isModal, money, handleClick_close, handleClick_open, handleClick_save } : Props) {
     let intent : Intent = Intent.NONE;
     let labelInfo : string = '(필수입력)';
     let caption = {
@@ -20,21 +25,26 @@ export function Form (props : Props) {
         amount_label_title : '사용금액',
         type_label_title : '지출 타입',
     }
-
-
+    let form = {
+        title : ''
+    }
+    console.log('다시랜더링댐>??')
+    
     const CATEGORIES_OPTIONS = ['교육비','커피값','라이센스비용','적금','월세','통신비'];
+
 
     let isImcome = '소득' === '소득' ? true : false;
     isImcome= !isImcome;
     return (
         <div>
+            <Button onClick={()=>{handleClick_open()}} value="열기"/>
 
             <Dialog
                 className="popup"
                 icon={IconNames.CONFIRM}
-                onClose={()=>{console.log('close()')}}
+                onClose={()=>{handleClick_close()}}
                 title={caption.dialog_header_title}
-                isOpen={true}>
+                isOpen={isModal}>
                         
                 <Card elevation={4} style={{margin : 10}}>
 
@@ -48,6 +58,8 @@ export function Form (props : Props) {
                         <EditableText
                             alwaysRenderInput={true}
                             intent={intent}  
+                            defaultValue={money.title}
+                            onChange={(e)=>{money.title = e}}
                             placeholder="title"
                         />
                     </H1>
@@ -64,7 +76,7 @@ export function Form (props : Props) {
                                     allowNumericCharactersOnly={true}
                                     buttonPosition="none"
                                     large={true} fill={true} min={0} placeholder="amount" 
-                                    onValueChange={(_v,value) =>  console.log( _v, value)} />
+                                    onValueChange={(_v,value) => {money.amount= _v}} />
                     </FormGroup>
                 </Card>
 
@@ -95,9 +107,9 @@ export function Form (props : Props) {
                 </Card>
                 <Card elevation={4} style={{margin : 10}}>
                     <ButtonGroup alignText="right">
-                        <Button icon={IconNames.SAVED}>입력</Button>
-                        <Button icon={IconNames.STOP}>닫기</Button>
-                        <Button icon={IconNames.CONFIRM}>확인</Button>
+                        <Button icon={IconNames.SAVED} onClick={()=>{handleClick_save(money)}}>저장</Button>
+                        <Button icon={IconNames.STOP} onClick={()=>{handleClick_close()}}>닫기</Button>
+                        <Button icon={IconNames.CONFIRM} onClick={()=>{handleClick_close()}}>확인</Button>
                     </ButtonGroup>
                 </Card>
             </Dialog>

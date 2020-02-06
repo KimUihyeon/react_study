@@ -1,7 +1,7 @@
 
 enum CRUDTypes { 'SELECT', 'SELECT_ONE' , 'DELETE' , 'UPDATE', 'INSERT'}
 enum EenvetTypes { 'CLICK' , 'CHANGED' }
-enum UIAction { 'test' }; 
+enum UIAction { 'test', 'modal_swich' }; 
 
 const category_service_prefix = 'CTG';
 const money_service_prefix = 'MONEY';
@@ -29,3 +29,4 @@ export const MENU_CLICK = type_joinner('MENU' , EenvetTypes.CLICK.toString())
 
 
 export const UI_ANIMATION = type_joinner( ui_service_prefix , UIAction.test.toString());
+export const UI_MODAL_CLOSE = type_joinner( ui_service_prefix , UIAction.modal_swich.toString());

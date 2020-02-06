@@ -8,3 +8,11 @@ export const ui_animation = ()=> {
 }
 
 
+export const ui_modal_switch = (isModalOpen : boolean)=>{
+    return {
+        type : actionTypes.UI_ANIMATION,
+        regModal : isModalOpen
+    }
+}
+
+

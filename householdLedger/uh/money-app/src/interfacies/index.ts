@@ -12,7 +12,7 @@ export interface IMoney{
     title : string;
     type : string;
     amount : number;
-    createDate : Date;
+    createDate : Date ;
 }
 
 export interface ICategory {
