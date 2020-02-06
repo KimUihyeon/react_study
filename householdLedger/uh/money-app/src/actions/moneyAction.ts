@@ -10,10 +10,10 @@ export const getList = () => {
 }
 
 
-export const getMoneyDetail = (id : number) : AnyAction =>{
+export const getMoneyDetail = (moneyId : number) : AnyAction =>{
     return {
         type : actionTypes.MONEY_SELECT_ONE,
-        moneyId : id
+        moneyId
     }
 }
 
@@ -33,9 +33,9 @@ export const insertMoney = (money :  IMoney) : AnyAction => {
     }
 }
 
-export const deleteMoney = (id : number) : AnyAction  => {
+export const deleteMoney = (moneyId : number) : AnyAction  => {
     return {
         type : actionTypes.MONEY_DELETE,
-        moneyId : id
+        moneyId 
     }
 }

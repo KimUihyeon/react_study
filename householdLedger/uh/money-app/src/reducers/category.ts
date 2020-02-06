@@ -19,7 +19,4 @@ export const category = (state : any = initialState, action : any) : object =>{
             }
         }
     }
-    return {
-
-    }
 }

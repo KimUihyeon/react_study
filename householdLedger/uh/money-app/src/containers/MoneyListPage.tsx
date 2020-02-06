@@ -1,5 +1,5 @@
 import React from "react";
-import { List as MoneyList} from '../components/money/List'
+import { MoneyList } from '../components/MoneyList'
 import { connect } from 'react-redux';
 import { stateTypes } from '../reducers'
 import { IMoney } from '../interfacies/index'

@@ -13,7 +13,33 @@ a, a:active , a:visited {
     cursor: pointer;
 }
 
+.widthFull{
+    width: 100%;
+}
 
+.height50 {
+    height: 100px;
+}
+
+.flexBox-col > div{
+    flex: 1
+}
+
+
+.color-mainBG { 
+    background: 444444;
+}
+
+
+
+
+
+/* App 메인 */
+.app{
+    margin: 0 auto;
+    min-width: 300px ;
+    max-width: 500px;
+}
 
 
 /* Menu 관련 */

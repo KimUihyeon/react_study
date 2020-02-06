@@ -1,5 +1,5 @@
 import React from "react";
-import { IMenuItem }from '../../interfacies';
+import { IMenuItem }from '../interfacies';
 import { Link } from "react-router-dom";
 
 

@@ -4,7 +4,7 @@ import { IconNames } from "@blueprintjs/icons";
 import { FormGroup, InputGroup , NumericInput, Card,
     Button, H1,  Dialog,  HTMLSelect , ControlGroup, Toast,
     EditableText, RadioGroup , Radio , Tag, ButtonGroup} from "@blueprintjs/core";
-import { IMoney } from "../../interfacies";
+import { IMoney } from "../interfacies";
 
 
 interface Props{
@@ -16,7 +16,7 @@ interface Props{
 }
 
 
-export function Form ({isModal, money, handleClick_close, handleClick_open, handleClick_save } : Props) {
+export function MoneyForm ({isModal, money, handleClick_close, handleClick_open, handleClick_save } : Props) {
     let intent : Intent = Intent.NONE;
     let labelInfo : string = '(필수입력)';
     let caption = {

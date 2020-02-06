@@ -1,4 +1,4 @@
-import * as ActionTypes from '../actions/actionTypes';
+import * as actionTypes from '../actions/actionTypes';
 import { masterData } from '../data';
 
 const initialState = {
@@ -8,7 +8,7 @@ const initialState = {
 export const menu = (state : any  = initialState, action : any ) : any =>{
 
     switch(action.type){
-        case ActionTypes.MENU_CLICK : {
+        case actionTypes.UI_MENU_SWITCH : {
             let cloneMenuItems = [...state.menuItems].map((menu)=>{
                 menu.active = false;
                 if(menu.id === action.menuItem.id){

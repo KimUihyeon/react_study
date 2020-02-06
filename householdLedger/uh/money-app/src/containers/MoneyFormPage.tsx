@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux'
-import { Form as MoneyForm } from '../components/money/Form'
+import { MoneyForm } from '../components/MoneyForm'
 import { stateTypes } from '../reducers'
 import * as actions from '../actions'
 import { IMoney } from "../interfacies";

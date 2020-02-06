@@ -1,12 +1,12 @@
 import React from 'react';
-import { IMoney } from '../../interfacies/index'
+import { IMoney } from '../interfacies/index'
 
 interface Props {
     money : IMoney,
     handleClick : any
 }
 
-export function Item ({ money , handleClick } :Props) {
+export function MoneyItem ({ money , handleClick } :Props) {
     return (
         <div>
             <div>

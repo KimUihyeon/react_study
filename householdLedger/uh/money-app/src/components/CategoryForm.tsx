@@ -4,7 +4,7 @@ interface Props {
     name : string,
 }
 
-export function Form (props : Props) {
+export function CategoryForm (props : Props) {
     return (
         <div>
             Category Form
