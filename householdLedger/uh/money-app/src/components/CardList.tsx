@@ -1,6 +1,8 @@
 import React from 'react';
 import { ICard } from '../interfacies/index'
 import { CardItem } from './CardItem'
+import Slider from "react-slick";
+import { Button } from '@blueprintjs/core';
 
 
 interface Props {
@@ -15,9 +17,25 @@ export function CardList ( {cards} : Props){
         )
     })
 
+    var settings = {
+        dots: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        centerMode: true,
+        arrows:false,
+        variableWidth:true,
+        adaptiveHeight:true
+      };
+
     return (
         <div>
-            {cardIComponents}
+            <div style={{paddingBottom:30}}>
+                <Slider
+                    {...settings}>
+                    {cardIComponents}
+                </Slider>
+            </div>
         </div>
     )
 }

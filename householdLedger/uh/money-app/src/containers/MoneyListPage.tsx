@@ -13,7 +13,14 @@ interface Props {
 }
 
 
+let aaa = new Promise((resolve,rejects)=>{
+    setTimeout(() => {
+        resolve(); 
+    }, 5000);
+})
+
 function MoneyListPage ({ moneys, handleClick , match } : Props) {
+
     let searchParam = searchPramFactory(match.params);
 
     let cards :ICard[] = [

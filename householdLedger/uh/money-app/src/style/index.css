@@ -4,6 +4,20 @@ a, a:active , a:visited {
     color: inherit;
 }
 
+body{
+    margin: 0;
+    background: #222;
+    border: 1px solid #000;
+}
+
+#root{
+    padding: 8px;
+    margin: 0 auto;
+    min-width: 300px ;
+    max-width: 500px;
+    background: #f3f3f3;
+    border: 1px solid #000;
+}
 .a-block {
     display: block;
     width: 100%;
@@ -41,15 +55,24 @@ a, a:active , a:visited {
     background: 444444;
 }
 
+.icon_woori{
+    width: 30;
+    height: 30;
+}
+.wooriCard{
+    background-image: url(../images/wooriCard.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
-
-
+.kakaoCard{
+    background-image: url(../images/kakaoCard.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 /* App 메인 */
 .app{
-    margin: 0 auto;
-    min-width: 300px ;
-    max-width: 500px;
 }
 
 
@@ -82,4 +105,12 @@ a, a:active , a:visited {
 
 .menu .icon {
 
+}
+
+
+
+/* tree override */
+.bp3-tree-node-content{
+    height: 50px !important;
+    border-bottom:  1px solid #edeaea;
 }
