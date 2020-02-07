@@ -15,6 +15,17 @@ export interface IMoney{
     createDate : Date ;
 }
 
+export interface Type {
+    id : number,
+    
+}
+
 export interface ICategory {
     id : number ;   
+}
+
+export interface ICard{
+    id : number;
+    cardNumber : number[],
+    bankName : string,
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { IMenuItem }from '../interfacies';
 import { MenuItem } from './MenuItem'
 import { Button , Drawer, Position} from '@blueprintjs/core'
+import { IconNames } from '@blueprintjs/icons'
 import { Connect } from 'react-redux'
 
 interface Props {
@@ -22,14 +23,19 @@ export function Menu ({ menuItems, isOpen , handleMenuSwitch  } :Props)  {
 
     return (
         <div className='menu'>
-            <Button onClick={()=>{handleMenuSwitch(true)}}>Show Drawer</Button>
-            
+            <Button
+                large={true}
+                minimal={true}
+                icon={IconNames.MENU_OPEN} 
+                onClick={()=>{handleMenuSwitch(true)}}/>
             <Drawer
-                icon="info-sign"
+                icon={IconNames.MENU}
                 isOpen={isOpen}
+                
                 position={Position.LEFT}
+                size={'100%'}
                 onClose={()=>{handleMenuSwitch(false)}}
-                title="Palantir Foundry">
+                title="Menu">
 
                 <div>
                     안녕~

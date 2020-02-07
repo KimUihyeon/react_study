@@ -10,8 +10,9 @@ function Body(){
     return(
         <div>
             <Route path='/' component={MoneySumPage} />
-            <Route path='/main' component={MoneyListPage} />
+            <Route path='/main' component={MoneySumPage} />
             <Route path='/form' component={MoneyFormPage} />
+            <Route path='/card/:type' component={MoneyListPage} />
             <Route path='/setting' component={SettingPage} />
         </div>
     )

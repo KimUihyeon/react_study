@@ -20,11 +20,22 @@ a, a:active , a:visited {
 .height50 {
     height: 100px;
 }
-
-.flexBox-col > div{
-    flex: 1
+.fontSzie11 {
+    font-size: 11px;
 }
 
+.flexBox-col > .flex-item{
+    flex: 1
+}
+.text-center {
+    text-align: center;
+}
+
+.buttonBox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .color-mainBG { 
     background: 444444;
@@ -47,7 +58,7 @@ a, a:active , a:visited {
     display: flex;
     flex-flow: row;
     padding: 5px;
-    border: 1px solid #000;
+    border: 1px solid rgba(157, 157, 157, 0.447);
 }
 
 .menu .menu-item{

@@ -1,8 +1,11 @@
 import React from "react";
 import { stateTypes } from '../reducers'
+import { IconButton } from '../components/IconButton'
 import { connect } from 'react-redux';
 import { MoneySummaryGraph }  from '../components/MoneySummaryGraph'
 import { Divider , ButtonGroup } from '@blueprintjs/core'
+import { IconNames } from '@blueprintjs/icons'
+import paramsTypes from '../data/urlTypePrams'
 
 
 interface Props { 
@@ -11,17 +14,34 @@ interface Props {
 
 
 function MoneySumPage ({ } : Props) {
+    const size = 20;
+
     return (
         <div>
             <MoneySummaryGraph title={'test'}/>
             <ButtonGroup vertical={true} className="widthFull">
                 <Divider />
                 <ButtonGroup vertical={false} className="widthFull height50 flexBox-col">
-                    <div>일일평균</div>
+                    <IconButton
+                        iconSize={size}
+                        title={'오늘의 지출'} 
+                        contents={'100000'}
+                        href={`/card/${paramsTypes[paramsTypes.month]}`}
+                        icon={IconNames.MUGSHOT}/>
                     <Divider />
-                    <div>주간평균</div>
+                    <IconButton 
+                        iconSize={size}
+                        title={'이번주 지출'} 
+                        contents={'100000'}
+                        href={`/card/${paramsTypes[paramsTypes.today]}`}
+                        icon={IconNames.CALENDAR}/>
                     <Divider />
-                    <div>가장많은항목</div>
+                    <IconButton 
+                        iconSize={size}
+                        title={'Best 항목'} 
+                        contents={'주유비'}
+                        href={'/main/'}
+                        icon={IconNames.SCATTER_PLOT}/>
                 </ButtonGroup>
             </ButtonGroup>
 

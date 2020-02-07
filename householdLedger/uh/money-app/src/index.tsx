@@ -15,6 +15,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 let store = createStore(reducers);
 store.subscribe(() => {console.log(store.getState())})
 
+
 const rootCompoenet =  (
                             <Provider store={store}>
                                 <Router>

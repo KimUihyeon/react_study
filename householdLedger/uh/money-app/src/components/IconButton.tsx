@@ -1,25 +1,35 @@
 
 import React from 'react';
-import { H5, Intent, Label, Slider, Spinner, Switch } from "@blueprintjs/core";
+import { Link } from "react-router-dom";
+import { Icon, IconName, Tag } from "@blueprintjs/core";
 
 interface Props{
     title : string, 
-    icon : string,
+    icon : IconName,
+    iconSize : number,
+    contents : string,
+    href : string
 }
 
-export function IconButton( { title , icon } : Props  ) { 
+export function IconButton( { title , contents , icon , iconSize , href } : Props  ) { 
+
     return (
-        <div>
-            <div style={{marginTop:50 , marginBottom:50, position:"relative"}}>
-                <Spinner
-                    intent={Intent.PRIMARY} 
-                    size={320}
-                    value={0.5}>
-                </Spinner>
-                <div style={{textAlign:"center", position:"absolute" , top:150, width:'100%'}} >
-                    {title}
+        <div className='flex-item buttonBox'>
+            <Link to={href}>
+                <div>
+                    <div className='text-center' style={{marginBottom:7}}>
+                        <Icon icon={icon} iconSize={iconSize}></Icon>
+                    </div>
+                    <div className='text-center'>
+                        {
+                            contents ? <Tag minimal={true} round={true}>{contents}</Tag> : ''
+                        }
+                    </div>
+                    <div className='fontSzie11 text-center'>
+                        {title}
+                    </div>
                 </div>
-            </div>
+            </Link> 
         </div>
     )
 }
