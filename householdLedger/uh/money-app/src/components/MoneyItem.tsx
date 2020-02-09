@@ -13,6 +13,8 @@ export function MoneyItem ({ money , handleClick } :Props) {
     let plusMinus = money.type === '지출' ?  '-' : '';
     let amount = `${plusMinus}${util.toMoneyFormat(money.amount)}`;
     
+    console.log(money.paymentType);
+    
     return (
         <div style={{margin:5}}>
             <Card style={{textAlign:"right" }}>
@@ -21,14 +23,14 @@ export function MoneyItem ({ money , handleClick } :Props) {
                     <span>{amount}</span>
                 </H3>
                 <H3>
-                    <span style={{float:'left', fontSize:14}}>현금</span>
+                    <span style={{float:'left', fontSize:14}}>{money.paymentType?.bankName}</span>
                     <span style={{fontSize:12}}>{money.createDate.toISOString().substring(0, 10)}</span>
                 </H3>
                 <div>
                     <Tag style={{margin:3}} intent={money.type === '지출' ? 'danger' : 'success'}>
                         {money.type}
                     </Tag>
-                    <Tag style={{margin:3}}>{'교통비'}</Tag>
+                    <Tag style={{margin:3}}>{money.category}</Tag>
                 </div>
             </Card>
         </div>

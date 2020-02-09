@@ -1,6 +1,5 @@
 import React from "react";
 import { IMenuItem }from '../interfacies';
-import { MenuItem } from './MenuItem'
 import { Button , Drawer, Position, Icon, Intent, Classes, ITreeNode, Tree} from '@blueprintjs/core'
 import { IconNames } from '@blueprintjs/icons'
 import { Connect } from 'react-redux'
@@ -32,9 +31,9 @@ export function Menu ({ isOpen , handleMenuSwitch  } :Props)  {
                     <Tree
                         contents={data.nodes}
                         onNodeClick={({hasCaret})=>{
-                            if(!hasCaret){
+                            if(!hasCaret)
                                 handleMenuSwitch(false);
-                            }
+                            
                         }}
                         className={Classes.ELEVATION_4}/>
                 </div>

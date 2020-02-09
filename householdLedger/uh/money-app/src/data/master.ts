@@ -1,10 +1,10 @@
 import { IMenuItem , IMoney, IPayment } from "../interfacies";
 import { PaymentTypes } from '../data/enums';
 
+export const Categories = ['교육비','커피값','라이센스비용','적금','월세','통신비'];
 
-export const PaymentMaster = (): IPayment[]=>  {
-
-    let defaultCardDatas : IPayment[] = [
+class PaymentMasterFactory {
+    defaultCardDatas : IPayment[] = [
         {
             id : -2,
             type : PaymentTypes[PaymentTypes.NONE],
@@ -18,9 +18,8 @@ export const PaymentMaster = (): IPayment[]=>  {
             cardNumber : [], 
         },
     ]
-
-
-    let cardDatas : IPayment[] = [
+    
+    cardDatas : IPayment[] = [
         {
             id : 1,
             type : PaymentTypes[PaymentTypes.카드],
@@ -34,55 +33,23 @@ export const PaymentMaster = (): IPayment[]=>  {
             cardNumber : [6862,6990,1234,5888], 
         }
     ]
-
-    return [...defaultCardDatas,...cardDatas];
 }
 
+
+
+export const PaymentMaster = (): IPayment[]=>  {
+    let a = new PaymentMasterFactory();
+    return [...a.defaultCardDatas, ...a.cardDatas];
+}
+
+
 export class MaterData {
-    menuItems : IMenuItem[];
     moneyItems : IMoney[];
 
 
     constructor(){
-        this.menuItems = this.getMenuItems();
-        this.moneyItems = this.getMoneys();
-        console.log('MaterData constructor')
+        this.moneyItems = this.getMoneys().sort((a,b)=>a.createDate < b.createDate ? -1 : 0 );
     }
-
-    getMenuItems = () : IMenuItem[] =>{
-        let menus :IMenuItem[] = [
-            {
-                id : 0,
-                name : 'menu1',
-                icon : '',
-                active : true,
-                url : '/main'
-            },
-            {
-                id : 1,
-                name : 'menu2',
-                icon : '',
-                active : true,
-                url : '/form'
-            },
-            {
-                id : 2,
-                name : 'menu3',
-                icon : '',
-                active : true,
-                url : '/setting'
-            },
-            {
-                id : 4,
-                name : 'menu4',
-                icon : '',
-                active : true,
-                url : '/c'
-            },
-        ];
-        return menus;
-    }
-
 
     getMoneys = () : IMoney[] =>{
         let moneys : IMoney[] = [];
@@ -90,15 +57,20 @@ export class MaterData {
         for(let i = 0; i< 30 ; i++){
             let type = Math.floor(Math.random() * 2) === 0 ? '지출' : '수입';
             let amount = Math.floor( Math.random() * 1000 ) * Math.pow(10 , Math.floor( Math.random() * 3 ) + 3);
-            
+            let category = Categories[Math.floor(Math.random() * Categories.length)];
+            let paymentType = PaymentMaster().filter(t=>t.bankName.indexOf('전체') === -1)[Math.floor(Math.random() * 3)];  
+
+            let nowDate = new Date;
+            let createDate = new Date(`${nowDate.getFullYear()}-${nowDate.getMonth()+1}-${nowDate.getDate() - Math.floor(Math.random() * 3)}`);
+
             let prefix = type === '지출' ? '쓴' : '번';
 
             let money : IMoney = {
                 id : i, 
                 title : `${prefix} 돈${i}`,
-                createDate : new Date(),
-                category : '',
-                paymentType : null,
+                createDate,
+                category,
+                paymentType,
                 type, 
                 amount
             };

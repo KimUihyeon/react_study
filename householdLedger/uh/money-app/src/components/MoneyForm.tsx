@@ -5,7 +5,7 @@ import { FormGroup, InputGroup , NumericInput, Card,
     Button, H1,  Dialog,  HTMLSelect , ControlGroup, Toast,
     EditableText, RadioGroup , Radio , Tag, ButtonGroup} from "@blueprintjs/core";
 import { IMoney, ICard, IPayment } from "../interfacies";
-import { PaymentMaster } from '../data/master'
+import { PaymentMaster , Categories} from '../data/master'
 
 
 let data : IOptionProps ={
@@ -41,7 +41,6 @@ export function MoneyForm ({isModal, money, handleClick_close, handleClick_save 
         }
     });
     
-    const CATEGORIES_OPTIONS = ['교육비','커피값','라이센스비용','적금','월세','통신비'];
     let isImcome = money.type === '소득' ? true : false;
 
     return (
@@ -112,7 +111,7 @@ export function MoneyForm ({isModal, money, handleClick_close, handleClick_save 
 
 
                         <FormGroup inline={true}>
-                            <HTMLSelect options={CATEGORIES_OPTIONS} 
+                            <HTMLSelect options={Categories} 
                                 defaultValue={money.paymentType?.bankName} 
                                 onChange={(e)=>{
                                     let value = e.target.value;

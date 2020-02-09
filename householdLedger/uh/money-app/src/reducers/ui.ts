@@ -5,7 +5,6 @@ import { SWITCH } from '@blueprintjs/core/lib/esm/common/classes';
 const initailState = {
     menu : {
         isMenuOpen : false,
-        items : masterData.menuItems,
     },
     isOpenRegModal : false,
 }

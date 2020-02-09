@@ -29,28 +29,28 @@ function Header ( props : Props) {
 
   return(
     <div className='menu'>
-          <Button
-              large={true}
-              minimal={true}
-              icon={IconNames.MENU_OPEN} 
-              onClick={()=>{handleMenuSwitch(true)}}/>
+      <Button
+          large={true}
+          minimal={true}
+          icon={IconNames.MENU_OPEN} 
+          onClick={()=>{handleMenuSwitch(true)}}/>
 
-          <Button
-              style={{position:"absolute",right:15}}
-              large={true}
-              minimal={true}
-              icon={IconNames.PLUS} 
-              onClick={()=>{handleFormOpen(true)}} />
+      <Button
+          style={{position:"absolute",right:15}}
+          large={true}
+          minimal={true}
+          icon={IconNames.PLUS} 
+          onClick={()=>{handleFormOpen(true)}} />
 
-          <Menu isOpen={isMenuOpen} handleMenuSwitch={()=>{handleMenuSwitch(false)}}/>
+      <Menu isOpen={isMenuOpen} handleMenuSwitch={()=>{handleMenuSwitch(false)}}/>
 
-          <MoneyForm isModal={isFormOpen} 
-              money={selectedMoney}
-              handleFlagChange={handleFlagChange}
-              handleClick_save={handleClick_save}
-              handleClick_close={handleFormClose}
-          />
-      </div>
+      <MoneyForm isModal={isFormOpen} 
+          money={selectedMoney}
+          handleFlagChange={handleFlagChange}
+          handleClick_save={handleClick_save}
+          handleClick_close={handleFormClose}
+      />
+    </div>
   )
 }
 

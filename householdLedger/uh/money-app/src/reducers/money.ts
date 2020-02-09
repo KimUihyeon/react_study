@@ -20,6 +20,7 @@ const initialState = {
 export const money = (state = initialState, action : AnyAction) : any =>{
 
 
+
     switch(action.type){
         case actionTypes.MONEY_FlagChange : {
             let flagName = action.flagName;
@@ -68,7 +69,7 @@ export const money = (state = initialState, action : AnyAction) : any =>{
         }
 
         case actionTypes.MONEY_SELECT : {
-            let moneys = [...state.allMoneys].sort((a,b)=>a.amount- b.amount > 0 ? 1 : 0).splice(0,state.task);
+            let moneys = [...state.allMoneys].sort((a,b)=>a.createDate < b.createDate ? -1 : 0 ).splice(0,state.task);
 
             return {
                 ...state,

@@ -9,11 +9,15 @@ import { UrlParams } from '../data/enums'
 
 
 interface Props { 
-
+    
 }
 
 
 function MoneySumPage ({ } : Props) {
+
+    const todaySum = 0;
+    const monthSum = 0;
+    const weekSum = 10000;
     const size = 20;
 
     return (
