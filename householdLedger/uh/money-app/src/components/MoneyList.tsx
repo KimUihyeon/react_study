@@ -1,31 +1,28 @@
-import React from "react";
+import React , { useEffect } from "react";
 import { MoneyItem } from './MoneyItem';
 import { IMoney } from '../interfacies/index'
 import { Cell, Column, Table } from "@blueprintjs/table";
 
 interface Props {
     moneys : IMoney[];
-    handleClick : any
+    handleClick : any,
+    taskMoneys: any,
+    task : number
 }
 
-export function MoneyList ({moneys , handleClick} : Props) {
+export function MoneyList ({moneys , handleClick, taskMoneys ,task} : Props) {
 
-    moneys.sort((a,b)=> a.amount - b.amount < 0 ? -1 : 0);
-
-    let collectionToComponenet = moneys.map(d=>
-        <MoneyItem key={d.id} money={d} handleClick={handleClick}/>
-    );
-    let collectionToExcelComponent = (
-        <Table numRows={moneys.length}>
-            <Column name="항목명" cellRenderer={(row)=>(<Cell>{moneys[row].title}</Cell>)}/>
-            <Column name="타입" cellRenderer={(row)=>(<Cell>{moneys[row].type}</Cell>)}/>
-            <Column name="발생금액" cellRenderer={(row)=>(<Cell>{moneys[row].amount}</Cell>)}/>
-        </Table>
-    );
-
+    if(moneys.length === 0 ){
+        taskMoneys(task);
+    }
+    
     return (
         <div>
-            {collectionToComponenet}
+            { moneys.length === 0  ?
+                <div></div> : moneys.map(d=>
+                    <MoneyItem key={d.id} money={d} handleClick={handleClick}/>
+                )
+            }
         </div>
     )
 }

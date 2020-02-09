@@ -11,12 +11,12 @@ interface Props{
     isModal : boolean,
     money : IMoney,
     handleClick_close : any,
-    handleClick_open : any,
-    handleClick_save : any
+    handleClick_save : any,
+    handleFlagChange : any
 }
 
 
-export function MoneyForm ({isModal, money, handleClick_close, handleClick_open, handleClick_save } : Props) {
+export function MoneyForm ({isModal, money, handleClick_close, handleClick_save , handleFlagChange} : Props) {
     let intent : Intent = Intent.NONE;
     let labelInfo : string = '(필수입력)';
     let caption = {
@@ -28,16 +28,14 @@ export function MoneyForm ({isModal, money, handleClick_close, handleClick_open,
     let form = {
         title : ''
     }
-    console.log('다시랜더링댐>??')
     
     const CATEGORIES_OPTIONS = ['교육비','커피값','라이센스비용','적금','월세','통신비'];
 
 
-    let isImcome = '소득' === '소득' ? true : false;
-    isImcome= !isImcome;
+    let isImcome = money.type === '소득' ? true : false;
+    
     return (
         <div>
-            <Button onClick={()=>{handleClick_open()}} value="열기"/>
 
             <Dialog
                 className="popup"
@@ -75,6 +73,7 @@ export function MoneyForm ({isModal, money, handleClick_close, handleClick_open,
                                     id="amount"
                                     allowNumericCharactersOnly={true}
                                     buttonPosition="none"
+                                    value={money.amount.toString()}
                                     large={true} fill={true} min={0} placeholder="amount" 
                                     onValueChange={(_v,value) => {money.amount= _v}} />
                     </FormGroup>
@@ -92,9 +91,13 @@ export function MoneyForm ({isModal, money, handleClick_close, handleClick_open,
                         
                         <RadioGroup
                             inline={true}
-                            onChange={(d)=>{console.log(d)}}>
-                            <Radio label="소득" value="소득" />
-                            <Radio label="지출" value="지출" />
+                            selectedValue={money.type}
+                            onChange={(d)=>{
+                                let target : any =  d.target;
+                                handleFlagChange('type',target.value);
+                            }}>
+                            <Radio label="소득" value="소득"  onChange={()=>{}}/>
+                            <Radio label="지출" value="지출"  onChange={()=>{handleFlagChange('type','지출')}}/>
                         </RadioGroup>
 
                         <ControlGroup >

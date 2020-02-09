@@ -4,36 +4,21 @@ import { MenuItem } from './MenuItem'
 import { Button , Drawer, Position, Icon, Intent, Classes, ITreeNode, Tree} from '@blueprintjs/core'
 import { IconNames } from '@blueprintjs/icons'
 import { Connect } from 'react-redux'
+import { Link } from "react-router-dom";
+import { MoneyForm } from "./MoneyForm";
 
 interface Props {
-    menuItems : IMenuItem[],
     isOpen : boolean,
     handleMenuSwitch : any
 }
 
 
-export function Menu ({ menuItems, isOpen , handleMenuSwitch  } :Props)  {
+export function Menu ({ isOpen , handleMenuSwitch  } :Props)  {
     
     let data = { nodes: INITIAL_STATE };
 
-    let mapToComponent = menuItems.map((data : IMenuItem)=>{
-        return (
-            <div>
-                <MenuItem
-                    key={data.id}
-                    handleClick={handleMenuSwitch}
-                    menuItem={data} />
-            </div>
-        )
-    })
-
     return (
-        <div className='menu'>
-            <Button
-                large={true}
-                minimal={true}
-                icon={IconNames.MENU_OPEN} 
-                onClick={()=>{handleMenuSwitch(true)}}/>
+        <div>
             <Drawer
                 icon={IconNames.MENU}
                 isOpen={isOpen}
@@ -46,6 +31,11 @@ export function Menu ({ menuItems, isOpen , handleMenuSwitch  } :Props)  {
                 <div>
                     <Tree
                         contents={data.nodes}
+                        onNodeClick={({hasCaret})=>{
+                            if(!hasCaret){
+                                handleMenuSwitch(false);
+                            }
+                        }}
                         className={Classes.ELEVATION_4}/>
                 </div>
             </Drawer>
@@ -60,35 +50,36 @@ const INITIAL_STATE: ITreeNode[] = [
         id: 0,
         hasCaret: false,
         icon: "folder-close",
-        label: '메인화면',
+        label: (<Link onClick={()=>{}} to="/main">메인화면</Link>),
     },
     {
         id: 1,
         hasCaret: false,
         icon: "folder-close",
-        label: '오늘의 가계부',
+        label: (<Link to="/main">오늘의 가계부</Link>),
     },
     {
         id: 2,
         hasCaret: false,
         icon: "folder-close",
-        label: '금주의 가계부',
+        label: (<Link to="/main">금주의 가계부</Link>),
     },
     {
         id: 3,
         hasCaret: false,
         icon: "folder-close",
-        label: '가계부 등록',
+        label: (<Link to="/main">이달의 가계부</Link>),
     },
     {
         id: 4,
         hasCaret: true,
         icon: "folder-close",
-        label: '사용실적 통계',
+        label: (<Link to="/main">사용실적</Link>),
     },
     {
         id: 5,
         icon: "folder-close",
+        hasCaret: false,
         isExpanded: true,
         label: '가계부 관리',
         childNodes: [

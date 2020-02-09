@@ -9,6 +9,14 @@ export const ui_animation = () : AnyAction =>{
 }
 
 
+export const ui_reg_modal_switch = (isOpenRegModal : boolean)  : AnyAction =>{
+    return {
+        type : actionTypes.UI_REG_MODAL_SWITCH,
+        isOpenRegModal
+    }
+}
+
+
 export const ui_modal_switch = (isModalOpen : boolean) : AnyAction =>{
     return {
         type : actionTypes.UI_ANIMATION,

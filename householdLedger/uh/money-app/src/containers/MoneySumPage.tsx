@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { MoneySummaryGraph }  from '../components/MoneySummaryGraph'
 import { Divider , ButtonGroup } from '@blueprintjs/core'
 import { IconNames } from '@blueprintjs/icons'
-import paramsTypes from '../data/urlTypePrams'
+import { UrlParams } from '../data/enums'
 
 
 interface Props { 
@@ -26,14 +26,14 @@ function MoneySumPage ({ } : Props) {
                         iconSize={size}
                         title={'오늘의 지출'} 
                         contents={'100000'}
-                        href={`/card/${paramsTypes[paramsTypes.month]}`}
+                        href={`/card/${UrlParams[UrlParams.month]}`}
                         icon={IconNames.MUGSHOT}/>
                     <Divider />
                     <IconButton 
                         iconSize={size}
                         title={'이번주 지출'} 
                         contents={'100000'}
-                        href={`/card/${paramsTypes[paramsTypes.today]}`}
+                        href={`/card/${UrlParams[UrlParams.today]}`}
                         icon={IconNames.CALENDAR}/>
                     <Divider />
                     <IconButton 

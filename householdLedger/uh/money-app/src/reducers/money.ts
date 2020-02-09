@@ -4,15 +4,62 @@ import { masterData }  from '../data'
 import { AnyAction } from "redux";
 
 const initialState = {
-    moneys : masterData.moneyItems
+    allMoneys : masterData.moneyItems,
+    task : 5,
+    moneys :[],
+    selectedMoney: {
+
+        id : -1,
+        title : '',
+        type : '지출',
+        amount : 0,
+        createDate : new Date()
+    }
 }
 
 export const money = (state = initialState, action : AnyAction) : any =>{
 
 
     switch(action.type){
+        case actionTypes.MONEY_FlagChange : {
+            let flagName = action.flagName;
+
+            return {
+                ...state,
+                selectedMoney : {
+                    ...state.selectedMoney,
+                    [flagName] : action.flag
+                }
+            }
+        }
+
+        case actionTypes.MONEY_CREATE:{
+
+            let selectedMoney = state.selectedMoney;
+
+            if(state.selectedMoney.id !== -1){
+                let selectedMoney : IMoney = {
+                    id : -1,
+                    title : '',
+                    type : '지출',
+                    amount : 0,
+                    category : null ,
+                    paymentType : null ,
+                    createDate : new Date()
+                }
+                return {
+                    ...state,
+                    selectedMoney
+                }
+            }
+
+            return {
+                ...state
+            }
+            
+        }
         case  actionTypes.MONEY_SELECT_ONE : {
-            let moneyDetail : IMoney = state.moneys.filter(t=>t.id === action.moneyId)[0];
+            let moneyDetail : IMoney = state.allMoneys.filter(t=>t.id === action.moneyId)[0];
 
             return {
                 ...state,
@@ -21,30 +68,40 @@ export const money = (state = initialState, action : AnyAction) : any =>{
         }
 
         case actionTypes.MONEY_SELECT : {
+            let moneys = [...state.allMoneys].sort((a,b)=>a.amount- b.amount > 0 ? 1 : 0).splice(0,action.task);
+
             return {
                 ...state,
+                task : action.task+100,
+                moneys
             }
         }
 
         case actionTypes.MONEY_INSERT : {
             console.log(action.money);
-            let moneys = state.moneys.concat(action.money);
+            let pk = Math.max(...state.allMoneys.map(t=>t.id)) +1;
+            let money = {
+                ...action.money,
+                id: pk
+            }
+            let allMoneys = state.allMoneys.concat(money);
             return {
                 ...state,
-                moneys
+                selectedMoney: money,
+                allMoneys,
             }
         }
 
         case actionTypes.MONEY_DELETE : { 
-            let moneys = state.moneys.filter(t=>t.id !== action.id);
+            let allMoneys = state.allMoneys.filter(t=>t.id !== action.id);
             return {
                 ...state,
-                moneys
+                allMoneys
             }
         }
 
         case actionTypes.MONEY_UPDATE : {
-            let moneys = [...state.moneys].map((money)=>{
+            let allMoneys = [...state.allMoneys].map((money)=>{
                 if(action.money.id === money.id){
                     return {
                         ...money,
@@ -61,7 +118,7 @@ export const money = (state = initialState, action : AnyAction) : any =>{
 
             return {
                 ...state,
-                moneys
+                allMoneys
             }
         }
 
@@ -74,6 +131,6 @@ export const money = (state = initialState, action : AnyAction) : any =>{
     
     return {
         ...state , 
-        moneys : state.moneys
+        moneys : state.allMoneys
     }
 }

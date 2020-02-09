@@ -1,4 +1,4 @@
-import urlTypePrams from '../data/urlTypePrams'
+import { UrlParams } from './enums'
 
 
 
@@ -15,13 +15,13 @@ const getDateRage = ({type}: any) : Date[] =>{
     let endDate : Date = new Date();
 
     switch(type){
-        case urlTypePrams[urlTypePrams.month] : {
+        case UrlParams[UrlParams.month] : {
             return []
         }
-        case urlTypePrams[urlTypePrams.today] : {
+        case UrlParams[UrlParams.today] : {
             startDate = new Date();
             endDate = new Date();
-            return [startDate, endDate ];
+            return [startDate, endDate];
         }
         default : {
             return []

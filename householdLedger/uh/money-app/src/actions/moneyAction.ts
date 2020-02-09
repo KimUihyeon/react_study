@@ -3,9 +3,25 @@ import { AnyAction } from "redux";
 import { IMoney } from '../interfacies/index';
 
 
-export const getList = () => {
+export const moneyFlagChanged = (flagName : string , flag : any) =>{
+    return {
+        type :actionTypes.MONEY_FlagChange,
+        flagName,
+        flag,
+    }
+}
+
+export const createSelectMoney = () =>{
+    return {
+        type : actionTypes.MONEY_CREATE,
+    }
+}
+
+export const getList = (task : number) => {
+    console.log('task',task)
     return {
         type : actionTypes.MONEY_SELECT,
+        task 
     }
 }
 

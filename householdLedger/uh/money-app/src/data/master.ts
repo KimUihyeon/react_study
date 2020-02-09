@@ -59,6 +59,8 @@ export class MaterData {
                 id : i, 
                 title : `${prefix} 돈${i}`,
                 createDate : new Date(),
+                category : null,
+                paymentType : null,
                 type, 
                 amount
             };

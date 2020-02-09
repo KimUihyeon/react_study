@@ -1,5 +1,5 @@
 
-enum CRUDTypes { 'SELECT', 'SELECT_ONE' , 'DELETE' , 'UPDATE', 'INSERT'}
+enum CRUDTypes { 'SELECT', 'SELECT_ONE' , 'DELETE' , 'UPDATE', 'INSERT' , 'CREATE' }
 enum EenvetTypes { 'CLICK' , 'CHANGED' }
 enum UIAction { 'test', 'SWITCH'  }; 
 
@@ -24,6 +24,9 @@ export const MONEY_DELETE = type_joinner(money_service_prefix , CRUDTypes.DELETE
 export const MONEY_UPDATE = type_joinner(money_service_prefix , CRUDTypes.UPDATE.toString());
 export const MONEY_SELECT = type_joinner(money_service_prefix , CRUDTypes.SELECT.toString());
 export const MONEY_SELECT_ONE = type_joinner(money_service_prefix , CRUDTypes.SELECT_ONE.toString());
+export const MONEY_CREATE = type_joinner(money_service_prefix , CRUDTypes.CREATE.toString());
+
+export const MONEY_FlagChange = type_joinner(money_service_prefix , EenvetTypes.CHANGED.toString());
 
 
 // export const MENU_CLICK = type_joinner(menu_service_prefix , EenvetTypes.CLICK.toString())
@@ -32,3 +35,4 @@ export const MONEY_SELECT_ONE = type_joinner(money_service_prefix , CRUDTypes.SE
 export const UI_ANIMATION = type_joinner( ui_service_prefix , UIAction.test.toString());
 export const UI_MODAL_SWITCH = type_joinner( ui_service_prefix , UIAction.SWITCH.toString());
 export const UI_MENU_SWITCH = type_joinner( menu_service_prefix , UIAction.SWITCH.toString());
+export const UI_REG_MODAL_SWITCH = type_joinner( money_service_prefix , "REG" , UIAction.SWITCH.toString());

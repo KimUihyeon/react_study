@@ -78,6 +78,7 @@ body{
 
 /* Menu 관련 */
 .menu{
+    justify-content: space-between;
     display: flex;
     flex-flow: row;
     padding: 5px;

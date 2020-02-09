@@ -7,12 +7,18 @@ const initailState = {
         isMenuOpen : false,
         items : masterData.menuItems,
     },
-    regModal : false,
+    isOpenRegModal : false,
 }
 
 export const ui = ( state = initailState , action : any  ) : any =>{
 
     switch(action.type){
+        case actionTypes.UI_REG_MODAL_SWITCH :{
+            return {
+                ...state,
+                isOpenRegModal : action.isOpenRegModal
+            }
+        }
         case actionTypes.UI_MODAL_SWITCH : {
             return {
                 ...state,
