@@ -6,7 +6,7 @@ import { MoneySummaryGraph }  from '../components/MoneySummaryGraph'
 import { Divider , ButtonGroup } from '@blueprintjs/core'
 import { IconNames } from '@blueprintjs/icons'
 import { UrlParams } from '../data/enums'
-
+import { util } from '../data/util'
 
 interface Props { 
     
@@ -16,13 +16,17 @@ interface Props {
 function MoneySumPage ({ } : Props) {
 
     const todaySum = 0;
-    const monthSum = 0;
+    const monthSum = util.toMoneyFormat(140000);
     const weekSum = 10000;
     const size = 20;
+    const goalMoney = util.toMoneyFormat(160000);
 
     return (
         <div>
-            <MoneySummaryGraph title={'test'}/>
+            <MoneySummaryGraph 
+                title={'이번달 절약목표'}
+                usedMoney={140000}
+                goal={160000}/>
             <ButtonGroup vertical={true} className="widthFull">
                 <Divider />
                 <ButtonGroup vertical={false} className="widthFull height50 flexBox-col">
