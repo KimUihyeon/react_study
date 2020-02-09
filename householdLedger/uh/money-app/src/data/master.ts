@@ -1,9 +1,47 @@
-import { IMenuItem , IMoney } from "../interfacies";
+import { IMenuItem , IMoney, IPayment } from "../interfacies";
+import { PaymentTypes } from '../data/enums';
 
+
+export const PaymentMaster = (): IPayment[]=>  {
+
+    let defaultCardDatas : IPayment[] = [
+        {
+            id : -2,
+            type : PaymentTypes[PaymentTypes.NONE],
+            bankName : '전체보기',
+            cardNumber : [], 
+        },
+        {
+            id : -1,
+            type : PaymentTypes[PaymentTypes.현금],
+            bankName : '현금',
+            cardNumber : [], 
+        },
+    ]
+
+
+    let cardDatas : IPayment[] = [
+        {
+            id : 1,
+            type : PaymentTypes[PaymentTypes.카드],
+            bankName : '우리은행 체크카드',
+            cardNumber : [3444,1245,1234,5458], 
+        },
+        {
+            id : 2,
+            type : PaymentTypes[PaymentTypes.카드],
+            bankName : '카카오뱅크',
+            cardNumber : [6862,6990,1234,5888], 
+        }
+    ]
+
+    return [...defaultCardDatas,...cardDatas];
+}
 
 export class MaterData {
     menuItems : IMenuItem[];
     moneyItems : IMoney[];
+
 
     constructor(){
         this.menuItems = this.getMenuItems();
@@ -59,7 +97,7 @@ export class MaterData {
                 id : i, 
                 title : `${prefix} 돈${i}`,
                 createDate : new Date(),
-                category : null,
+                category : '',
                 paymentType : null,
                 type, 
                 amount

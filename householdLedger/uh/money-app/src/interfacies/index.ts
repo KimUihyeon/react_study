@@ -12,7 +12,7 @@ export interface IMoney{
     title : string;
     type : string;
     amount : number;
-    category : ICategory | undefined | null,
+    category : string,
     paymentType : IPayment | undefined | null,
     createDate : Date ;
 }
@@ -35,6 +35,5 @@ export interface ICard{
 
 
 export interface IPayment extends ICard{
-    id : number,
     type : string ,
 }

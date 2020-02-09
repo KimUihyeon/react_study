@@ -17,11 +17,9 @@ export const createSelectMoney = () =>{
     }
 }
 
-export const getList = (task : number) => {
-    console.log('task',task)
+export const getList = () => {
     return {
         type : actionTypes.MONEY_SELECT,
-        task 
     }
 }
 

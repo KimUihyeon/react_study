@@ -1,21 +1,33 @@
 import React from 'react';
-import { ICard } from '../interfacies/index'
+import { ICard, IPayment } from '../interfacies/index'
 import { CardItem } from './CardItem'
 import Slider from "react-slick";
 import { Button } from '@blueprintjs/core';
 
 
 interface Props {
-    cards : ICard[]
+    payments : IPayment[]
 }
 
-export function CardList ( {cards} : Props){
+export function CardList ({payments} : Props){
 
-    const cardIComponents = cards.map(card=> {
+    const cardIComponents = payments.map(payment=> {
         return (
-            <CardItem key={card.id} card={card}></CardItem>
+            <CardItem key={payment.id} payment={payment}></CardItem>
         )
     })
+
+    const cardIdToSlideIdMapping = payments.map((pyment,i)=>{
+        return {
+            ...pyment,
+            slide:i
+        }
+    });
+
+    const handleSlideChange = (beforeNumber : number ,afterNumber : number) =>{
+        let data = cardIdToSlideIdMapping.filter(t=>t.slide===afterNumber)[0];
+        console.log(data.bankName); 
+    }
 
     var settings = {
         dots: true,
@@ -26,12 +38,13 @@ export function CardList ( {cards} : Props){
         arrows:false,
         variableWidth:true,
         adaptiveHeight:true
-      };
+    };
 
     return (
         <div>
             <div style={{paddingBottom:30}}>
                 <Slider
+                    beforeChange={(b,a)=>{handleSlideChange(b,a)}}
                     {...settings}>
                     {cardIComponents}
                 </Slider>

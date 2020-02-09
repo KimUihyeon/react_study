@@ -2,36 +2,33 @@ import React, { useEffect } from "react";
 import { MoneyList } from '../components/MoneyList'
 import { connect } from 'react-redux';
 import { stateTypes } from '../reducers'
-import { IMoney, ICard } from '../interfacies/index'
+import { IMoney, ICard, IPayment } from '../interfacies/index'
 import searchPramFactory from '../data/searchPramFactory'
 import { CardList } from "../components/CardList";
 import { Slider, Spinner, Intent } from "@blueprintjs/core";
 import * as actions from "../actions/index";
+import { PaymentMaster } from '../data/master'
 
 interface Props {
     moneys : IMoney[],
     handleClick : any,
-    taskMoneys : any,
+    nextMoneyTake : any,
     match : any,
     task : number
 }
 
 
-function MoneyListPage ({ moneys, handleClick , match , taskMoneys, task} : Props) {
+function MoneyListPage ({ moneys, handleClick , match , nextMoneyTake, task} : Props) {
+
+    if(moneys.length === 0 ){
+        nextMoneyTake();
+    }
 
     let searchParam = searchPramFactory(match.params);
 
-    console.log(task);
-
-
-    let cards :ICard[] = [
-        {id : -1, cardNumber: [1,2,3,4], bankName:''},
-        {id : 1, cardNumber: [1,2,3,4], bankName:''},
-        {id : 2, cardNumber: [1,2,3,4], bankName:''}
-    ]
+    let payments = PaymentMaster();
     
     useEffect(function() {
-        console.log('몇번튀심?')
         window.addEventListener('scroll', handle);
         
         return function cleanup() {
@@ -40,7 +37,6 @@ function MoneyListPage ({ moneys, handleClick , match , taskMoneys, task} : Prop
       }, []);
 
     const handle = () =>{
-        let startTask = 5;
         const { innerHeight } = window
         const { scrollHeight } = document.body
     
@@ -49,28 +45,21 @@ function MoneyListPage ({ moneys, handleClick , match , taskMoneys, task} : Prop
                 || document.body.scrollTop;
     
         if (scrollHeight - innerHeight - scrolltop < 0) {
-            let nextConst = task+5;
-            taskMoneys( startTask);
-            startTask += 5;
-            console.log(' startTask' , startTask);
+            setTimeout(() => {
+                nextMoneyTake();
+            }, 500);
         }
     }
     
     return (
         <div>
             <div>
-                <CardList cards={cards}></CardList>
+                <CardList payments={payments}></CardList>
             </div>
             <MoneyList 
                 moneys={moneys}
-                task={task}
-                taskMoneys={taskMoneys}
                 handleClick={handleClick}/>
             <div style={{padding:15}}> 
-             <Spinner
-                intent={Intent.PRIMARY}
-                size={35} 
-                 />
             </div>
         </div>
     )
@@ -87,7 +76,7 @@ let mapStateToProps = (state : stateTypes) => {
 let mapDispatchToProps = (dispatch : any) => {
     return {
         handleClick : () => { console.log('t') },
-        taskMoneys : (task : number) =>{dispatch(actions.MoneyAction.getList(task))}
+        nextMoneyTake : () =>{dispatch(actions.MoneyAction.getList())}
     }
 }
 

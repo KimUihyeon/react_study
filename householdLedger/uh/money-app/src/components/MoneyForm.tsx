@@ -1,11 +1,17 @@
 import React from "react";
-import { Intent } from "@blueprintjs/core";
+import { Intent, IOptionProps, Label } from "@blueprintjs/core";
 import { IconNames } from "@blueprintjs/icons";
 import { FormGroup, InputGroup , NumericInput, Card,
     Button, H1,  Dialog,  HTMLSelect , ControlGroup, Toast,
     EditableText, RadioGroup , Radio , Tag, ButtonGroup} from "@blueprintjs/core";
-import { IMoney } from "../interfacies";
+import { IMoney, ICard, IPayment } from "../interfacies";
+import { PaymentMaster } from '../data/master'
 
+
+let data : IOptionProps ={
+    label : '123',
+    value: '123',
+}
 
 interface Props{
     isModal : boolean,
@@ -25,15 +31,19 @@ export function MoneyForm ({isModal, money, handleClick_close, handleClick_save 
         amount_label_title : '사용금액',
         type_label_title : '지출 타입',
     }
-    let form = {
-        title : ''
-    }
+
+    let masterPayment = PaymentMaster();
+    let masterToOptionBox =  masterPayment.filter(t=>{return t.bankName.indexOf('전체') === -1 }).map(t=>{
+        let optionBox : IOptionProps;
+        return optionBox={
+            label : t.bankName,
+            value: t.id,
+        }
+    });
     
     const CATEGORIES_OPTIONS = ['교육비','커피값','라이센스비용','적금','월세','통신비'];
-
-
     let isImcome = money.type === '소득' ? true : false;
-    
+
     return (
         <div>
 
@@ -100,10 +110,26 @@ export function MoneyForm ({isModal, money, handleClick_close, handleClick_save 
                             <Radio label="지출" value="지출"  onChange={()=>{handleFlagChange('type','지출')}}/>
                         </RadioGroup>
 
+
+                        <FormGroup inline={true}>
+                            <HTMLSelect options={CATEGORIES_OPTIONS} 
+                                defaultValue={money.paymentType?.bankName} 
+                                onChange={(e)=>{
+                                    let value = e.target.value;
+                                    money.category = value;
+                                }}  />
+                            <HTMLSelect options={masterToOptionBox}  
+                                defaultValue={money.paymentType?.id} 
+                                onChange={(e)=>{
+                                    let value = Number(e.target.value)
+                                    money.paymentType = masterPayment.filter(t=>t.id === value)[0];
+                                }}  />
+                        </FormGroup>
+                            
+
                         <ControlGroup >
-                            <HTMLSelect options={CATEGORIES_OPTIONS} />
-                            <InputGroup placeholder="카테고리 추가" />
-                            <Button icon={IconNames.PLUS} value='카테고리 추가' />
+                            {/* <InputGroup placeholder="카테고리 추가" />
+                            <Button icon={IconNames.PLUS} value='카테고리 추가' /> */}
                         </ControlGroup>
                         <span>(항목 삭제, 수정은 설정을 이용해주세요)<a href='#'>(link)</a></span>
                     </FormGroup>

@@ -43,7 +43,7 @@ export const money = (state = initialState, action : AnyAction) : any =>{
                     title : '',
                     type : '지출',
                     amount : 0,
-                    category : null ,
+                    category : '' ,
                     paymentType : null ,
                     createDate : new Date()
                 }
@@ -68,11 +68,11 @@ export const money = (state = initialState, action : AnyAction) : any =>{
         }
 
         case actionTypes.MONEY_SELECT : {
-            let moneys = [...state.allMoneys].sort((a,b)=>a.amount- b.amount > 0 ? 1 : 0).splice(0,action.task);
+            let moneys = [...state.allMoneys].sort((a,b)=>a.amount- b.amount > 0 ? 1 : 0).splice(0,state.task);
 
             return {
                 ...state,
-                task : action.task+100,
+                task : state.task+5,
                 moneys
             }
         }

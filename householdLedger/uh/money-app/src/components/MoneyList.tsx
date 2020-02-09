@@ -6,15 +6,10 @@ import { Cell, Column, Table } from "@blueprintjs/table";
 interface Props {
     moneys : IMoney[];
     handleClick : any,
-    taskMoneys: any,
-    task : number
 }
 
-export function MoneyList ({moneys , handleClick, taskMoneys ,task} : Props) {
+export function MoneyList ({moneys , handleClick} : Props) {
 
-    if(moneys.length === 0 ){
-        taskMoneys(task);
-    }
     
     return (
         <div>
