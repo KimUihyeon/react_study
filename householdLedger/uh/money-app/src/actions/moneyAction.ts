@@ -2,12 +2,18 @@ import * as actionTypes from './actionTypes';
 import { AnyAction } from "redux";
 import { IMoney } from '../interfacies/index';
 
-
 export const moneyFlagChanged = (flagName : string , flag : any) =>{
     return {
         type :actionTypes.MONEY_FlagChange,
         flagName,
         flag,
+    }
+}
+
+export const reload = (pageIndex : number)=>{
+    return {
+        type : actionTypes.reload,
+        pageIndex,
     }
 }
 

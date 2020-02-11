@@ -20,8 +20,13 @@ const initialState = {
 export const money = (state = initialState, action : AnyAction) : any =>{
 
 
-
     switch(action.type){
+        case actionTypes.reload :{
+            return {
+                ...state ,
+                pageIndex : action.pageIndex,
+            };
+        }
         case actionTypes.MONEY_FlagChange : {
             let flagName = action.flagName;
 

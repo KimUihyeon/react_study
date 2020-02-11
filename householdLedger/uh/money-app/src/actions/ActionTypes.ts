@@ -28,7 +28,7 @@ export const MONEY_CREATE = type_joinner(money_service_prefix , CRUDTypes.CREATE
 
 export const MONEY_FlagChange = type_joinner(money_service_prefix , EenvetTypes.CHANGED.toString());
 
-
+export const reload = "모두변경";
 // export const MENU_CLICK = type_joinner(menu_service_prefix , EenvetTypes.CLICK.toString())
 
 

@@ -17,7 +17,6 @@ interface Props {
     task : number
 }
 
-
 function MoneyListPage ({ moneys, handleClick , match , nextMoneyTake, task} : Props) {
 
     if(moneys.length === 0 ){
@@ -27,7 +26,7 @@ function MoneyListPage ({ moneys, handleClick , match , nextMoneyTake, task} : P
     let searchParam = searchPramFactory(match.params);
 
     let payments = PaymentMaster();
-    
+
     useEffect(function() {
         window.addEventListener('scroll', handle);
         
