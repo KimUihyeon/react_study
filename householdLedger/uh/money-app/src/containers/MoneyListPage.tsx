@@ -81,4 +81,4 @@ let mapDispatchToProps = (dispatch : any) => {
 
 
 
-export  default connect(mapStateToProps, mapDispatchToProps)(MoneyListPage);
+export  default connect(mapStateToProps, mapDispatchToProps)(MoneyListPage);  
