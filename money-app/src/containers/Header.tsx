@@ -20,7 +20,7 @@ interface Props {
     handleFlagChange : any
 }
 
-function Header ( props : Props) {
+function Header ( props : Props) {  
 
   let { isMenuOpen, isFormOpen , handleMenuSwitch , selectedMoney,
     handleFlagChange ,handleFormClose, handleFormOpen ,handleClick_save  } = props;
