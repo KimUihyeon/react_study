@@ -11,6 +11,7 @@ export function CardItem ({payment} : Props) {
 
     let cardNumber : string =  payment.cardNumber.join('-');
     return (
+        
         <div style={{margin:10, width:250, padding:15}}>
             <Card style={{borderRadius:10}} elevation={3}>
                 <p><span className='icon_woori'></span>{payment.bankName}</p>
