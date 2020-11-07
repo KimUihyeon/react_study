@@ -9,16 +9,15 @@
  [참고 사이트 velopert gitbook](https://react.vlpt.us/redux-middleware/)
 
 
+
+
+
+
+
+
+
+
    
-
- <br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> 
-
-> 🚫 보안 1급 자료 입니다.
-
-> 🚫 보안 1급 자료 입니다.
-
-> 🚫 보안 1급 자료 입니다.
-
 ---
 ## 일정 
 
@@ -57,7 +56,6 @@
     이슈는 아래 링크에 있음.
 
     리엑트 진도 끝까지 때오기.
-    3주후에 만나요~ (2월 6일)
     1/28일 날 스터디 중간 점검 
 
 
